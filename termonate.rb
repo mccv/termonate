@@ -159,7 +159,6 @@ def usage
   puts "usage: earlybird.rb [-d] [-l list] [-u url] [-h host]"
   puts "options: "
   puts "  -d debug mode, read json from stdin"
-  puts "  -l the list of people to follow."
   puts "  -u userstream path. Default: /2b/user.json"
   puts "  -h userstream hostname: Default: chirpstream.twitter.com"
 end
@@ -168,14 +167,12 @@ opts = GetoptLong.new(
       [ '--help', GetoptLong::NO_ARGUMENT ],
       [ '-d', GetoptLong::REQUIRED_ARGUMENT ],
       [ '-u', GetoptLong::OPTIONAL_ARGUMENT],
-      [ '-h', GetoptLong::OPTIONAL_ARGUMENT],
-      [ '-b', GetoptLong::OPTIONAL_ARGUMENT]
+      [ '-h', GetoptLong::OPTIONAL_ARGUMENT]
     )
 
 $debug = false
 $url = '/2b/user.json'
 $host = 'chirpstream.twitter.com'
-$bootstrap = false
 opts.each do |opt, arg|
   case opt
   when '--help'
@@ -187,8 +184,6 @@ opts.each do |opt, arg|
     $url = arg
   when '-h'
     $host = arg
-  when '-b'
-    $bootstrap = true
   end
 end
 
