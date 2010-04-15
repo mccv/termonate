@@ -1,0 +1,1 @@
+A very simple user stream client based on earlybird (http://github.com/ryanking/earlybird).  This client takes a different approach, and shows the top "resonating" tweets among your friends.
